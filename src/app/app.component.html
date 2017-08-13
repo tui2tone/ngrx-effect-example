@@ -1,0 +1,20 @@
+<div class="container">
+  <h3>Todo App</h3>
+
+  <p>Total: {{total | async}}</p>
+
+  <div class="field has-addons">
+    <div class="control">
+      <input class="input" type="text" placeholder="Task" [(ngModel)]="task">
+    </div>
+    <div class="control">
+      <button class="button is-info" (click)="addTodo(task)">
+        Add
+      </button>
+    </div>
+  </div>
+
+  <ul>
+    <li *ngFor="let item of todos | async">{{item.text}}</li>
+  </ul>
+</div>
