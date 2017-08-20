@@ -19,9 +19,9 @@ export const getTodos = createSelector(
   }
 );
 
-export const getTotalTodo = createSelector(
+export const getIsLoading = createSelector(
   getAppTodo,
   (state: fromTodo.State) => {
-    return state.total;
+    return state.isLoading;
   }
 );

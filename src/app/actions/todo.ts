@@ -1,28 +1,28 @@
 import { Action } from '@ngrx/store';
 
-export const ADD = 'ADD TODO';
-export const REMOVE = 'REMOVE TODO';
-export const DONE = 'DONE TODO';
+export const GET_TODO = '[Get] Todo';
+export const GET_TODO_SUCCESS = '[Get] Todo Success';
+export const GET_TODO_FAILED = '[Get] Todo Failed';
 
-export class AddTodo implements Action {
-  readonly type = ADD;
+export class GetTodo implements Action {
+  readonly type = GET_TODO;
 
-  constructor(public text: string) {}
+  constructor() {}
 }
 
-export class RemoveTodo implements Action {
-  readonly type = REMOVE;
+export class GetTodoSuccess implements Action {
+  readonly type = GET_TODO_SUCCESS;
 
-  constructor(public index: number) {}
+  constructor(public payload: any) {}
 }
 
-export class DoneTodo implements Action {
-  readonly type = DONE;
+export class GetTodoFailed implements Action {
+  readonly type = GET_TODO_FAILED;
 
-  constructor(public index: number) {}
+  constructor(public payload: any) {}
 }
 
 export type Actions =
-  | AddTodo
-  | RemoveTodo
-  | DoneTodo;
+  | GetTodo
+  | GetTodoSuccess
+  | GetTodoFailed;

@@ -11,28 +11,17 @@ import * as todoAction from './actions/todo';
 })
 export class AppComponent implements OnInit {
 
-  total: Observable<any>;
   todos: Observable<any>;
+  isLoading: Observable<any>;
 
   constructor(
     private store: Store<fromStore.State>
   ) {
-    this.total = store.select(fromStore.getTotalTodo);
+    this.isLoading = store.select(fromStore.getIsLoading);
     this.todos = store.select(fromStore.getTodos);
   }
 
   ngOnInit() {
-  }
-
-  addTodo(text) {
-    this.store.dispatch(new todoAction.AddTodo(text));
-  }
-
-  removeTodo(index) {
-    this.store.dispatch(new todoAction.RemoveTodo(index));
-  }
-
-  doneTodo(index) {
-    this.store.dispatch(new todoAction.DoneTodo(index));
+    this.store.dispatch(new todoAction.GetTodo());
   }
 }
